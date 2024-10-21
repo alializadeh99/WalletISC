@@ -1,5 +1,9 @@
 package com.example.wallet.dtos;
 
+import com.example.wallet.model.Gender;
+import com.example.wallet.model.MilitaryStatus;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
 
 import java.util.Date;
@@ -22,9 +26,11 @@ public class RegisterUserDto {
     @Past(message = "تاریخ تولد باید برای گدشته باشد.")
     private Date birthDate;
 
-    private String gender;
+    @Enumerated(EnumType.ORDINAL)
+    private Gender gender;
 
-    private String militaryStatus;
+    @Enumerated(EnumType.ORDINAL)
+    private MilitaryStatus militaryStatus;
 
     @Email(message = "ایمیل معتبر وارد کنید.")
     private String email;
@@ -73,19 +79,19 @@ public class RegisterUserDto {
         this.birthDate = birthDate;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    public String getMilitaryStatus() {
+    public MilitaryStatus getMilitaryStatus() {
         return militaryStatus;
     }
 
-    public void setMilitaryStatus(String militaryStatus) {
+    public void setMilitaryStatus(MilitaryStatus militaryStatus) {
         this.militaryStatus = militaryStatus;
     }
 

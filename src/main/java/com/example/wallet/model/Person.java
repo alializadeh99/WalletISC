@@ -34,9 +34,11 @@ public class Person implements UserDetails {
     @Past(message = "تاریخ تولد باید برای گدشته باشد.")
     private Date birthDate;
 
-    private String gender;
+    @Enumerated(EnumType.ORDINAL)
+    private Gender gender;
 
-    private String militaryStatus;
+    @Enumerated(EnumType.ORDINAL)
+    private MilitaryStatus militaryStatus;
 
     @Email(message = "ایمیل معتبر وارد کنید.")
     @Column(unique = true)
@@ -84,7 +86,7 @@ public class Person implements UserDetails {
         this.lastName = lastName;
     }
 
-    public @Past(message = "تاریخ تولد باید برای گدشته باشد.") Date getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
@@ -92,19 +94,19 @@ public class Person implements UserDetails {
         this.birthDate = birthDate;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    public String getMilitaryStatus() {
+    public MilitaryStatus getMilitaryStatus() {
         return militaryStatus;
     }
 
-    public void setMilitaryStatus(String militaryStatus) {
+    public void setMilitaryStatus(MilitaryStatus militaryStatus) {
         this.militaryStatus = militaryStatus;
     }
 
@@ -133,5 +135,25 @@ public class Person implements UserDetails {
     @Override
     public String getUsername() {
         return nationalId;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
