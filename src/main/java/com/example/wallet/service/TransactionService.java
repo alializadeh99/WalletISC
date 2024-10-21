@@ -47,9 +47,8 @@ public class TransactionService {
                     else {
                         throw new RuntimeException("تراکنش باید از نوع واریز یا برداشت باشد.");
                     }
-            accountRepository.save(account);
+            accountRepository.save(account);// ذخیره‌سازی تراکنش
 
-            // ذخیره‌سازی تراکنش
             transaction.setAccount(account);  // اختصاص حساب به تراکنش
             transaction.setTransactionDate(new Date());  // تعیین تاریخ تراکنش
             return transactionRepository.save(transaction);  // ذخیره تراکنش
