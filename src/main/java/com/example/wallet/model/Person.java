@@ -46,6 +46,22 @@ public class Person implements UserDetails {
     @NotBlank(message = "ورود رمز عبور الرامی است.")
     @Size(min = 8,max = 16,message = "رمز عبور باید باید بین ۸ و ۱۶ رقم باشد.")
     private String password;
+
+    public Person(){}
+
+    public Person(long id, String mobileNumber, String nationalId, String firstName, String lastName, LocalDate birthDate, Gender gender, MilitaryStatus militaryStatus, String email, String password) {
+        this.id = id;
+        this.mobileNumber = mobileNumber;
+        this.nationalId = nationalId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.gender = gender;
+        this.militaryStatus = militaryStatus;
+        this.email = email;
+        this.password = password;
+    }
+
     public long getId() {
         return id;
     }
