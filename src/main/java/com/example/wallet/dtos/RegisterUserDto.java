@@ -5,8 +5,8 @@ import com.example.wallet.model.MilitaryStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
+import java.time.LocalDate;
 
-import java.util.Date;
 
 public class RegisterUserDto {
 
@@ -24,7 +24,7 @@ public class RegisterUserDto {
     private String lastName;
 
     @Past(message = "تاریخ تولد باید برای گدشته باشد.")
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Enumerated(EnumType.ORDINAL)
     private Gender gender;
@@ -71,11 +71,11 @@ public class RegisterUserDto {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

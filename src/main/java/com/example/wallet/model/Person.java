@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 
@@ -32,7 +31,7 @@ public class Person implements UserDetails {
     private String lastName;
 
     @Past(message = "تاریخ تولد باید برای گدشته باشد.")
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Enumerated(EnumType.ORDINAL)
     private Gender gender;
@@ -86,11 +85,11 @@ public class Person implements UserDetails {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

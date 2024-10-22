@@ -1,4 +1,4 @@
-/*
+
 package com.example.wallet.validator;
 
 import com.example.wallet.model.Person;
@@ -41,4 +41,4 @@ public class PersonValidator implements Validator {
         }
         return age;
     }
-}*/
+}
